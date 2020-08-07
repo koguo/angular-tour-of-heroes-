@@ -1,0 +1,15 @@
+<!-- <h1>{{hero.name | uppercase}}</h1> 
+<div>
+    <label for="">
+        name:
+        <input placeholder="name" [(ngModel)]="hero.name">
+    </label>
+</div> -->
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+        <span>{{hero.id}}---</span>{{hero.name}}
+    </li>
+</ul>
+<!-- 在父组件中的子占位符上绑定了属性，那么为什么在子组件中没有一个用来接收selectedHero的东西呢？ -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
